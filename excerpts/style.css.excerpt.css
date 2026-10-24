@@ -1,0 +1,19 @@
+/* EXCERPT from the project report (Appendix A.3), not the full file */
+:root {
+  --bg: #120B1F;
+  --deep-lavender: #24143D;
+  --dark-purple: #321B52;
+  --lavender: #7655A6;
+  --soft-lavender: #B9A3D9;
+  --gold: #D4AF37;
+  --gold-bright: #F4D77D;
+  --champagne: #F8E7B0;
+  --off-white: #F8F5FF;
+}
+
+.r-card {
+  background: linear-gradient(160deg, var(--dark-purple), var(--deep-lavender));
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  transition: transform 0.12s ease-out, box-shadow 0.25s ease;
+}
