@@ -1,0 +1,23 @@
+name: DevSecOps CI/CD
+on:
+  push: { branches: [main] }
+  pull_request: { branches: [main] }
+jobs:
+  security-and-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run Gitleaks secret scan
+        uses: gitleaks/gitleaks-action@v2
+      - name: Build Docker image
+        run: docker build -t foodiego:${{ github.sha }} .
+      - name: Run Trivy vulnerability scan
+        uses: aquasecurity/trivy-action@0.24.0
+        with: { image-ref: "foodiego:${{ github.sha }}", severity: "CRITICAL,HIGH" }
+      - name: Smoke test
+        run: |
+          docker run -d -p 8080:80 --name foodiego-test foodiego:${{ github.sha }}
+          sleep 3 && curl -sf http://localhost:8080 | grep -qi "FoodieGo"
+          docker stop foodiego-test
+      - name: Deployment (simulated)
+        run: echo "Build ${{ github.sha }} passed all checks."
