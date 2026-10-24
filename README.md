@@ -38,11 +38,12 @@ Computer Science and Engineering, CMR Technical Campus (Semester V).
   food-delivery brand. All restaurant names and data are fictional.
 - No real authentication, payments, backend, or database - intentionally out of
   scope for this academic project.
-- The rebuilt `src/` front end is a static demo (search, filters, demo cart)
-  checked with a JS syntax check only; it has not been run through the Docker
-  pipeline. Some pipeline results in the original project report were marked
-  "expected / to be verified during demonstration" rather than presented as
-  completed runs.
+- The rebuilt `src/` front end is a static demo (search, filters, demo cart).
+- The workflow's Trivy step pin was updated from the report's `0.24.0` (which
+  no longer resolves on GitHub) to `v0.36.0`; everything else in the workflow
+  is unchanged from the report.
+- Verified run: the full pipeline (Gitleaks scan, Docker build, Trivy scan,
+  container smoke test) ran green on GitHub Actions on 2026-10-24.
 
 ## Run locally
 
