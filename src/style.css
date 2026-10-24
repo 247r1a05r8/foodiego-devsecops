@@ -1,0 +1,126 @@
+/* FoodieGo theme - rebuilt 2026-10-24 from the report's Appendix A.3 tokens */
+:root {
+  --bg: #120B1F;
+  --deep-lavender: #24143D;
+  --dark-purple: #321B52;
+  --lavender: #7655A6;
+  --soft-lavender: #B9A3D9;
+  --gold: #D4AF37;
+  --gold-bright: #F4D77D;
+  --champagne: #F8E7B0;
+  --off-white: #F8F5FF;
+  --border: #3d2763;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--off-white);
+  font-family: "Segoe UI", system-ui, sans-serif;
+  min-height: 100vh;
+}
+
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 28px;
+  background: var(--deep-lavender);
+  border-bottom: 1px solid var(--border);
+}
+
+.logo { font-size: 1.4rem; font-weight: 700; color: var(--gold); }
+
+.cart-btn, .filter-btn, .search-panel button, .order-btn {
+  cursor: pointer;
+  border: 1px solid var(--gold);
+  background: transparent;
+  color: var(--gold-bright);
+  border-radius: 10px;
+  padding: 8px 14px;
+}
+
+.hero {
+  padding: 64px 28px;
+  background: linear-gradient(160deg, var(--dark-purple), var(--deep-lavender));
+  text-align: center;
+}
+
+.hero-text h1 { font-size: 2.2rem; margin-bottom: 24px; }
+.hero-text h1 span { color: var(--gold); }
+
+.search-panel {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.search-panel input, .search-panel select {
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--off-white);
+}
+
+.filters {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  padding: 24px 16px 8px;
+  flex-wrap: wrap;
+}
+
+.filter-btn.active { background: var(--gold); color: var(--bg); }
+
+.restaurant-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 18px;
+  padding: 24px 28px 48px;
+}
+
+.r-card {
+  background: linear-gradient(160deg, var(--dark-purple), var(--deep-lavender));
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 18px;
+  transition: transform 0.12s ease-out, box-shadow 0.25s ease;
+}
+
+.r-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.35); }
+.r-card h3 { color: var(--champagne); margin-bottom: 6px; }
+.r-card p { color: var(--soft-lavender); font-size: 0.9rem; margin-bottom: 4px; }
+.r-card .order-btn { margin-top: 12px; }
+
+.cart-drawer {
+  position: fixed;
+  top: 0; right: 0;
+  width: min(360px, 90vw);
+  height: 100vh;
+  background: var(--deep-lavender);
+  border-left: 1px solid var(--border);
+  padding: 20px;
+  z-index: 10;
+}
+
+.cart-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
+#cartItems { list-style: none; }
+#cartItems li { padding: 8px 0; border-bottom: 1px solid var(--border); color: var(--champagne); }
+.cart-note { margin-top: 16px; color: var(--soft-lavender); font-size: 0.85rem; }
+
+.toast {
+  position: fixed;
+  bottom: 24px; left: 50%;
+  transform: translateX(-50%);
+  background: var(--gold);
+  color: var(--bg);
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-weight: 600;
+  z-index: 20;
+}
+
+.site-footer { text-align: center; padding: 20px; color: var(--soft-lavender); font-size: 0.85rem; }

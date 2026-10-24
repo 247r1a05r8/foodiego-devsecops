@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<!-- FoodieGo front end REBUILT on 2026-10-24 from the excerpts printed in the
+     project report (Appendix A). The original full source was not preserved;
+     this is a new, minimal implementation matching the report's description.
+     Fictional demo data only. -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FoodieGo - Fictional Food Delivery Demo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="logo">FoodieGo</div>
+    <button class="cart-btn" id="cartBtn" type="button">Cart (<span id="cartCount">0</span>)</button>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <h1>Discover Great Food Near <span>You</span></h1>
+        <form class="search-panel" id="searchPanel">
+          <input type="text" id="searchInput" placeholder="Try 'Pizza'">
+          <select id="locationSelect">
+            <option value="all">All locations</option>
+            <option value="north">North Campus</option>
+            <option value="south">South Campus</option>
+          </select>
+          <button type="submit">Explore Restaurants</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="filters" id="filters">
+    <button class="filter-btn active" data-filter="all" type="button">All</button>
+    <button class="filter-btn" data-filter="biryani" type="button">Biryani</button>
+    <button class="filter-btn" data-filter="pizza" type="button">Pizza</button>
+    <button class="filter-btn" data-filter="dessert" type="button">Desserts</button>
+  </section>
+
+  <main class="restaurant-grid" id="restaurantGrid"></main>
+
+  <aside class="cart-drawer" id="cartDrawer" hidden>
+    <div class="cart-head">
+      <h2>Your Cart (demo)</h2>
+      <button id="closeCart" type="button">Close</button>
+    </div>
+    <ul id="cartItems"></ul>
+    <p class="cart-note">Demo only - no real orders, payments, or accounts.</p>
+  </aside>
+
+  <div class="toast" id="toast" hidden></div>
+
+  <footer class="site-footer">
+    <p>FoodieGo is a fictional academic demo. Not affiliated with any real brand.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
