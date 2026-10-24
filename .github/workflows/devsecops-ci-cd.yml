@@ -12,7 +12,7 @@ jobs:
       - name: Build Docker image
         run: docker build -t foodiego:${{ github.sha }} .
       - name: Run Trivy vulnerability scan
-        uses: aquasecurity/trivy-action@0.24.0
+        uses: aquasecurity/trivy-action@v0.36.0
         with: { image-ref: "foodiego:${{ github.sha }}", severity: "CRITICAL,HIGH" }
       - name: Smoke test
         run: |
